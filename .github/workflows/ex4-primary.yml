@@ -1,0 +1,9 @@
+name: npm test
+on:
+  workflow_dispatch:
+
+jobs:
+  run-npm-test:
+    uses: "{{ github.repository }}/.github/workflows/ex4.yaml@main"
+    with:
+      node-version: "14"
