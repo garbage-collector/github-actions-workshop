@@ -4,6 +4,8 @@ on:
 
 jobs:
   run-npm-test:
+    env:
+        NODE_VERSION: 14
     runs-on: ubuntu-latest
     steps:
         - name: checkout
@@ -11,9 +13,12 @@ jobs:
         - name : setup node
           uses: actions/setup-node@v3
           with:
-            node-version: 'lts/*'
+            node-version: "${{ env.NODE_VERSION }}"
         - name: run test
           shell: bash
           run: |
             npm install
             npm test
+        - name: node version
+          shell: bash
+          run: node -v
