@@ -22,13 +22,13 @@ jobs:
             npm test
   build-docker:
     runs-on: ubuntu-latest
+    if: github.ref == 'main' || github.head_ref == 'main'
     steps:
         - uses: docker-practice/actions-setup-docker@master
           timeout-minutes: 2
         - name: checkout
           uses: actions/checkout@v3
         - name: docker build
-          if: github.ref == 'main'
           run: |
             docker build -t ${{ github.sha }} .
         
