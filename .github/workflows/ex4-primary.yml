@@ -4,6 +4,6 @@ on:
 
 jobs:
   run-npm-test:
-    uses: "./.github/workflows/ex4.yaml@main"
+    uses: "./.github/workflows/ex4.yaml"
     with:
       node-version: "14"
