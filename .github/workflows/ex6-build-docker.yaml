@@ -22,7 +22,7 @@ jobs:
             npm test
   build-docker:
     runs-on: ubuntu-latest
-    if: github.ref == 'main' || github.head_ref == 'main'
+    if: github.ref == 'refs/pull/main' || github.head_ref == 'main'
     steps:
         - uses: docker-practice/actions-setup-docker@master
           timeout-minutes: 2
